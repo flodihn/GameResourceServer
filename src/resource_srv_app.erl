@@ -1,4 +1,4 @@
--module(game_resource_srv_app).
+-module(resource_srv_app).
 
 -behaviour(application).
 
@@ -13,7 +13,7 @@
 %% ===================================================================
 start() ->
     application:start(sasl),
-    application:start(game_resource_srv),
+    application:start(resource_srv),
     observer:start().
 
 %% ===================================================================
@@ -21,7 +21,7 @@ start() ->
 %% ===================================================================
 
 start(_StartType, _StartArgs) ->
-    game_resource_srv_sup:start_link().
+    resource_srv_sup:start_link().
 
 stop(_State) ->
     ok.

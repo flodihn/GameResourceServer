@@ -1,4 +1,4 @@
--module(game_resource_srv_sup).
+-module(resource_srv_sup).
 
 -behaviour(supervisor).
 
@@ -28,19 +28,21 @@ init([]) ->
     Restart = transient,
     Shutdown = 6000,
 
-    GameResourceSrv = {game_resource_srv, 
-        {game_resource_srv, start_link, [mnesia_resource]},
+    ResourceSrv = {
+        resource_srv,
+        {resource_srv, start_link, [mnesia_resource]},
         Restart,
         Shutdown,
         worker,
         []},
 
-    GameResourceEventManager = {game_resource_event_manager,
-        {gen_event, start_link, [{local, game_resource_event_manager}]},
+    ResourceEventManager = {
+        resource_event_manager,
+        {gen_event, start_link, [{local, resource_event_manager}]},
         Restart,
         Shutdown,
         worker,
         []},
 
-    {ok, {SupFlags, [GameResourceSrv, GameResourceEventManager]}}.
+    {ok, {SupFlags, [ResourceSrv, ResourceEventManager]}}.
 

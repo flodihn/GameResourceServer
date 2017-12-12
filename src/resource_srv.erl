@@ -1,4 +1,4 @@
--module(game_resource_srv).
+-module(resource_srv).
 -behaviour(gen_server).
 
 -include("resource_defs.hrl").

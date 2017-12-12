@@ -1,4 +1,4 @@
-{application, game_resource_srv,
+{application, resource_srv,
  [
   {description, ""},
   {vsn, "1"},
@@ -7,6 +7,6 @@
                   kernel,
                   stdlib
                  ]},
-  {mod, { game_resource_srv_app, []}},
+  {mod, { resource_srv_app, []}},
   {env, []}
  ]}.
